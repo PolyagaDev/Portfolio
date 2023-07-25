@@ -1,0 +1,32 @@
+header{
+  height: 100px;
+  background: black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1{
+      color: white;
+
+    }
+  }
+
+  nav{
+    ul{
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      li{
+        list-style: none;
+        color: white;
+
+      }
+    }
+  }
+}
