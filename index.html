@@ -13,24 +13,53 @@
 
     <nav>
         <ul>
-            <li>Home</li>
-            <li>Compétences</li>
-            <li>Projets</li>
-            <li>Contact</li>
+            <li class="home">Home</li>
+            <li class="comp">Compétences</li>
+            <li class="projet">Projets</li>
+            <li class="contact">Contact</li>
         </ul>
     </nav>
 </header>
 
-<div class="content">
-
+<div class="content" id="content">
+    <!-- Le contenu des différentes pages sera inséré ici -->
 </div>
 
 <footer>
-    Tous droit réservé à Maxime Jacquot
+    <h4>Tous droits réservés à Maxime Jacquot</h4>
 </footer>
 
+<script>
+    // Fonction pour charger le contenu de la page sélectionnée
+    function loadPage(page) {
+        fetch(`pages/${page}.html`) // La page est accessible via une URL relative
+            .then(response => response.text()) // Récupérer le contenu de la réponse
+            .then(data => {
+                // Insérer le contenu dans le conteneur
+                document.getElementById('content').innerHTML = data;
+            })
+            .catch(error => console.log('Erreur : ', error));
+    }
 
+    // Ajouter des écouteurs d'événements pour chaque élément de navigation
+    document.querySelector('.home').addEventListener('click', () => {
+        loadPage('home');
+    });
 
-<script src="public/script.js"></script>
+    document.querySelector('.comp').addEventListener('click', () => {
+        loadPage('comp');
+    });
+
+    document.querySelector('.projet').addEventListener('click', () => {
+        loadPage('projet');
+    });
+
+    document.querySelector('.contact').addEventListener('click', () => {
+        loadPage('contact');
+    });
+
+    // Charger la page par défaut au chargement de la page
+    loadPage('home');
+</script>
 </body>
 </html>

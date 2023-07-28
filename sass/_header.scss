@@ -3,6 +3,8 @@ header{
   background: black;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  font-family: $title-font;
+
 
   .logo{
     display: flex;
@@ -25,6 +27,7 @@ header{
       li{
         list-style: none;
         color: white;
+        cursor: pointer;
 
       }
     }
