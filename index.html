@@ -32,14 +32,23 @@
 <script>
     // Fonction pour charger le contenu de la page sélectionnée
     function loadPage(page) {
+        // Ajoute la classe pour le fondu
+        document.getElementById('content').classList.add('fade-in-out');
+
         fetch(`pages/${page}.html`) // La page est accessible via une URL relative
             .then(response => response.text()) // Récupérer le contenu de la réponse
             .then(data => {
                 // Insérer le contenu dans le conteneur
                 document.getElementById('content').innerHTML = data;
+
+                // Supprime la classe pour le fondu après un délai de 50 ms (la durée de l'animation)
+                setTimeout(() => {
+                    document.getElementById('content').classList.remove('fade-in-out');
+                }, 500);
             })
             .catch(error => console.log('Erreur : ', error));
     }
+
 
     // Ajouter des écouteurs d'événements pour chaque élément de navigation
     document.querySelector('.home').addEventListener('click', () => {
